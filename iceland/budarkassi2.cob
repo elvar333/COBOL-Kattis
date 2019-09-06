@@ -3,18 +3,20 @@ PROGRAM-ID. BUDARKASSI2.
 
 DATA DIVISION.
     WORKING-STORAGE SECTION.
-    01 INP PIC X(50).
-        88 EOF VALUE SPACES.
-    01 A PIC 9(6).
-    01 B PIC 9(6).
-    01 ANS PIC Z(11).
+       01 INP PIC  X(15).
+       01   N PIC  S9(6).
+       01   K PIC  S9(6).
+       01 OUT PIC  Z(11).
 
 PROCEDURE DIVISION.
-    ACCEPT INP
-    
-    UNSTRING INP
-        DELIMITED BY SPACE
-        INTO A, B
-    MULTIPLY A BY B GIVING ANS
-    DISPLAY FUNCTION TRIM( ANS )
-    STOP RUN.
+    PERFORM
+        ACCEPT INP
+       
+        UNSTRING INP
+            DELIMITED BY SPACE
+            INTO N, K
+            
+        MULTIPLY N BY K GIVING OUT
+       
+        DISPLAY OUT
+    END-PERFORM.
