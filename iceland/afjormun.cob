@@ -7,9 +7,6 @@ WORKING-STORAGE SECTION.
     01 INP PIC X(300).
     01 RES PIC X(300).
 
-*> Ekki klárað
-*>  Á eftir að setja fyrsta staf í Upper Case
-
 PROCEDURE DIVISION.
     PERFORM 
         ACCEPT N
