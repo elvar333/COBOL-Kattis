@@ -1,5 +1,5 @@
 IDENTIFICATION DIVISION.
-PROGRAM-ID. HEILTOLUSUMMA.
+PROGRAM-ID. HEILTOLUSUMMA. *> Virkar ekki
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
@@ -22,7 +22,7 @@ PROCEDURE DIVISION.
                COMPUTE N = N * -1
                COMPUTE COM = -N * (N + 1) / 2 + 1
                MOVE COM TO OUT
-               DISPLAY function TRIM(OUT)
+               DISPLAY "-", function TRIM(OUT)
            END-IF
         END-IF
     END-PERFORM.

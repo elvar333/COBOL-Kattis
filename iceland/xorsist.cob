@@ -12,17 +12,17 @@ WORKING-STORAGE SECTION.
 PROCEDURE DIVISION.
   PERFORM
     ACCEPT N
-    COMPUTE M = function MOD(N, 4)
-      IF M = 3
-        DISPLAY "Enginn"
+    DIVIDE N BY 4 GIVING K REMAINDER M
+      IF M = 0
+        DISPLAY function TRIM(N)
       ELSE
-        IF M = 2
-          DISPLAY "Gunnar"
+        IF M = 1
+          DISPLAY "1"
         ELSE
-          IF M = 1
-            DISPLAY "1"
+          IF M = 2
+            DISPLAY "Gunnar"
           ELSE
-            DISPLAY function TRIM(N)
+            DISPLAY "Enginn"
           END-IF
         END-IF
       END-IF

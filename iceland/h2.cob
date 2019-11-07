@@ -1,46 +1,31 @@
 IDENTIFICATION DIVISION.
-PROGRAM-ID. HEILTOLUSUMMA.
+PROGRAM-ID. HEILTOLUSUMMA. *> Virkar
 
 DATA DIVISION.
-    WORKING-STORAGE SECTION.
-    01 INP PIC S9(11).
-    01 NEG PIC S9(11).
-    01 HALF PIC S9(11).
-    01 ANS PIC S9(30).
+WORKING-STORAGE SECTION.
+    01 N   PIC S9(38).
+    01 COM PIC S9(38).
+    01 OUT PIC  Z(38).
 
-    01 X PIC S9(11).
-    01 X1 PIC S9(11).
-    01 X2 PIC S9(11).
-    01 X3 PIC S9(11).
-    01 X4 PIC S9(11).
-    01 X5 PIC S9(11).
-
-    01 Y PIC S9(11).
-    01 Y1 PIC S9(11).
-    01 Y2 PIC S9(11).
-    01 Y3 PIC S9(11).
-    01 Y4 PIC S9(11).
-    01 Y5 PIC S9(11).
-    
 PROCEDURE DIVISION.
-    ACCEPT INP
-    
-    MULTIPLY INP BY -1 GIVING NEG
-    DIVIDE INP BY 2 GIVING HALF
-    
-    DIVIDE INP BY 2 GIVING X REMAINDER X5
-
-    ADD 1 TO INP GIVING Y
-    MULTIPLY Y BY -1 GIVING Y1
-    DIVIDE Y1 BY 2 GIVING Y2
-    MULTIPLY Y2 BY NEG GIVING Y3
-    MULTIPLY Y3 BY -1 GIVING Y4
-    
-    IF INP > 1
-       ADD 1 TO INP GIVING X2
-       COMPUTE ANS = X2 * HALF 
-    ELSE
-       COMPUTE ANS = Y4
-    END-IF
-    DISPLAY ANS.
-STOP RUN.
+    PERFORM 
+       ACCEPT N
+       
+       IF N < 1
+          COMPUTE COM = 1-(N - 1) * N / 2
+       ELSE
+          COMPUTE COM = N * (N + 1) / 2
+       END-IF
+       
+       IF COM = 0
+          DISPLAY "0"
+       ELSE
+          MOVE COM TO OUT
+          IF COM <= 0
+              DISPLAY "-", function TRIM(OUT)
+          ELSE
+              DISPLAY function TRIM(OUT)
+          END-IF
+       END-IF
+       
+    END-PERFORM.
