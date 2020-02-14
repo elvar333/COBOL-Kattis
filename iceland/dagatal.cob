@@ -1,0 +1,22 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. dagatal.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+   01 N   PIC S9(30).
+   01 M   PIC S9(30).
+   01 K   PIC S9(30).
+   01 INP PIC X(100).
+   01 OUT PIC X(100).
+
+PROCEDURE DIVISION.
+   ACCEPT N
+   IF N = 1 OR N = 3 OR N = 5 OR N = 7 OR N = 8 OR N = 10 OR N = 12
+      DISPLAY "31"
+   ELSE
+      IF N = 4 OR N = 6 OR N = 9 OR N = 11
+         DISPLAY "30"
+      ELSE
+         DISPLAY "28"
+      END-IF      
+   END-IF.

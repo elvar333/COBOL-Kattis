@@ -7,14 +7,15 @@ WORKING-STORAGE SECTION.
   01 M   PIC S9(30).
   01 K   PIC S9(30).
   01 INP PIC X(100).
-  01 OUT PIC X(100).
+  01 OUT PIC Z(100).
 
 PROCEDURE DIVISION.
   PERFORM
     ACCEPT N
     DIVIDE N BY 4 GIVING K REMAINDER M
       IF M = 0
-        DISPLAY function TRIM(N)
+        MOVE N TO OUT
+        DISPLAY function TRIM(OUT)
       ELSE
         IF M = 1
           DISPLAY "1"
